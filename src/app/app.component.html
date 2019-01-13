@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="mat-app-background basic-container">
+  <div class="head-section" fxLayout="row" fxLayout.sm="row" fxLayout.xs="row" fxLayoutWrap>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        Questions
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <!--end of toolbar-->
+  </div>
+  <!--end of head-section-->
+  <div *ngIf="questions.length > 0;else message">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let question of questions;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <span class="spanClass" [innerHTML]="question.body"></span>
+          <!-- end of div -->
+        </mat-panel-title>
+        <!-- end of title -->
+      </mat-expansion-panel-header>
+      <!-- end of header -->
+      <quill-editor #text id="text-editor"></quill-editor>
+    </mat-expansion-panel>
+    <!-- end of expansion-panel -->
+  </mat-accordion>
+  <!-- end of accordion -->
+  </div>
+  <ng-template #message>
+     <span> Loading .....</span>
+    </ng-template>
+</div>
+<!-- end of basic-container -->
